@@ -37,23 +37,12 @@ Each slice exports its public API via an `index.ts` to avoid deep imports. Co-lo
 ├── README.md
 ├── CONTRIBUTING.md
 ├── frontend/
-│   ├── .env.example
-│   ├── app/            # Next.js routes (App Router)
-│   ├── entities/       # Business entities (user, workspace, experiment)
-│   ├── features/       # User-facing capabilities (auth, chat, uploads)
-│   ├── processes/      # Cross-feature flows (onboarding, workspace switcher)
-│   ├── shared/         # UI kit, hooks, utilities, API clients
-│   └── widgets/        # Page-level sections
+│   └── .env.example    # Environment template for the planned Next.js app
 └── backend/
-    ├── .env.example
-    ├── app/
-    │   ├── main.py     # FastAPI entrypoint
-    │   ├── api/        # Routers and versioned endpoints
-    │   ├── services/   # Business logic
-    │   ├── db/         # Database models, migrations, policy helpers
-    │   └── core/       # Settings, security, deps
-    └── tests/          # API, services, and policy tests
+    └── .env.example    # Environment template for the planned FastAPI backend
 ```
+
+> Note: The frontend and backend source code is not yet committed to this repository. The directory structure and environment templates are provided to prepare local configuration for the forthcoming Next.js and FastAPI implementations.
 
 ## Prerequisites
 

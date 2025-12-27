@@ -11,7 +11,11 @@ interface OrganizationListProps {
   onInquiry: (id: string) => void;
 }
 
-export const OrganizationList: React.FC<OrganizationListProps> = ({ organizations, onBookmark, onInquiry }) => (
+export const OrganizationList: React.FC<OrganizationListProps> = ({
+  organizations,
+  onBookmark,
+  onInquiry,
+}) => (
   <View style={styles.stack}>
     {organizations.map((org) => (
       <Card key={org.id} style={styles.card}>
@@ -26,7 +30,10 @@ export const OrganizationList: React.FC<OrganizationListProps> = ({ organization
           ))}
         </View>
         <View style={styles.actions}>
-          <AccentButton label={org.bookmarked ? 'Saved' : 'Save org'} onPress={() => onBookmark(org.id)} />
+          <AccentButton
+            label={org.bookmarked ? 'Saved' : 'Save org'}
+            onPress={() => onBookmark(org.id)}
+          />
           <AccentButton variant="ghost" label="Send inquiry" onPress={() => onInquiry(org.id)} />
         </View>
         <Text style={styles.meta}>Contact: {org.contact}</Text>
@@ -36,42 +43,42 @@ export const OrganizationList: React.FC<OrganizationListProps> = ({ organization
 );
 
 const styles = StyleSheet.create({
-  stack: {
-    gap: 12,
+  actions: {
+    flexDirection: 'row',
+    gap: 8,
   },
   card: {
     gap: 8,
   },
-  title: {
-    fontFamily: typography.bold,
+  chip: {
+    backgroundColor: palette.grid,
+    borderRadius: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  chipText: {
     color: palette.text,
-    fontSize: 16,
-  },
-  subtitle: {
     fontFamily: typography.medium,
-    color: palette.accent,
-  },
-  meta: {
-    fontFamily: typography.regular,
-    color: palette.muted,
   },
   chips: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
   },
-  chip: {
-    backgroundColor: palette.grid,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 16,
+  meta: {
+    color: palette.muted,
+    fontFamily: typography.regular,
   },
-  chipText: {
+  stack: {
+    gap: 12,
+  },
+  subtitle: {
+    color: palette.accent,
     fontFamily: typography.medium,
-    color: palette.text,
   },
-  actions: {
-    flexDirection: 'row',
-    gap: 8,
+  title: {
+    color: palette.text,
+    fontFamily: typography.bold,
+    fontSize: 16,
   },
 });

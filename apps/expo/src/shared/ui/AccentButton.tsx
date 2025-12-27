@@ -28,25 +28,25 @@ export const AccentButton: React.FC<AccentButtonProps> = ({
 
 const styles = StyleSheet.create({
   button: {
+    alignItems: 'center',
     backgroundColor: palette.accent,
     borderColor: palette.accent,
-    borderWidth: 1,
-    paddingVertical: 12,
-    paddingHorizontal: 18,
     borderRadius: 12,
-    alignItems: 'center',
+    borderWidth: 1,
     marginVertical: 6,
+    paddingHorizontal: 18,
+    paddingVertical: 12,
   },
   ghost: {
-    backgroundColor: 'transparent',
-  },
-  text: {
-    color: '#ffffff',
-    fontFamily: typography.medium,
-    fontSize: 14,
+    backgroundColor: palette.transparent,
   },
   ghostText: {
     color: palette.accent,
+  },
+  text: {
+    color: palette.inverseText,
+    fontFamily: typography.medium,
+    fontSize: 14,
   },
 });
 

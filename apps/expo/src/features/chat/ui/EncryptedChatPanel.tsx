@@ -12,7 +12,10 @@ export const EncryptedChatPanel: React.FC = () => {
   const [topic, setTopic] = useState('Follow-up on funding request');
 
   const requestCopy = useMemo(
-    () => (requests.length === 0 ? 'No requests yet. Invite contacts to start encrypted threads.' : 'Recent chat intents'),
+    () =>
+      requests.length === 0
+        ? 'No requests yet. Invite contacts to start encrypted threads.'
+        : 'Recent chat intents',
     [requests],
   );
 
@@ -28,7 +31,10 @@ export const EncryptedChatPanel: React.FC = () => {
           placeholderTextColor={palette.muted}
         />
         <View style={styles.actions}>
-          <AccentButton label="Request chat" onPress={() => startChat('Research org lead', topic)} />
+          <AccentButton
+            label="Request chat"
+            onPress={() => startChat('Research org lead', topic)}
+          />
           <AccentButton
             variant="ghost"
             label="Save encrypted draft"
@@ -44,7 +50,10 @@ export const EncryptedChatPanel: React.FC = () => {
               <Text style={styles.previewLabel}>Encrypted preview</Text>
               <Text style={styles.previewValue}>{request.encryptedPreview}</Text>
               <Text style={styles.decrypted}>
-                Decrypted: <Text style={styles.decryptedValue}>{decryptMessage(request.encryptedPreview)}</Text>
+                Decrypted:{' '}
+                <Text style={styles.decryptedValue}>
+                  {decryptMessage(request.encryptedPreview)}
+                </Text>
               </Text>
             </View>
           ))}
@@ -69,65 +78,65 @@ export const EncryptedChatPanel: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    gap: 12,
-  },
-  card: {
-    gap: 10,
-  },
-  title: {
-    fontFamily: typography.bold,
-    fontSize: 16,
-    color: palette.text,
-  },
-  subtitle: {
-    fontFamily: typography.medium,
-    color: palette.accent,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: palette.grid,
-    borderRadius: 12,
-    padding: 12,
-    fontFamily: typography.regular,
-    color: palette.text,
-  },
   actions: {
     flexDirection: 'row',
     gap: 8,
   },
+  card: {
+    gap: 10,
+  },
+  container: {
+    gap: 12,
+  },
+  decrypted: {
+    color: palette.text,
+    fontFamily: typography.medium,
+  },
+  decryptedValue: {
+    color: palette.text,
+    fontFamily: typography.regular,
+  },
+  input: {
+    borderColor: palette.grid,
+    borderRadius: 12,
+    borderWidth: 1,
+    color: palette.text,
+    fontFamily: typography.regular,
+    padding: 12,
+  },
   list: {
     gap: 8,
   },
-  requestRow: {
-    gap: 4,
-    padding: 10,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: palette.grid,
-  },
-  requestTitle: {
-    fontFamily: typography.medium,
-    color: palette.text,
-  },
   previewLabel: {
-    fontFamily: typography.medium,
     color: palette.muted,
+    fontFamily: typography.medium,
   },
   previewValue: {
-    fontFamily: typography.regular,
     color: palette.accent,
-  },
-  decrypted: {
-    fontFamily: typography.medium,
-    color: palette.text,
-  },
-  decryptedValue: {
     fontFamily: typography.regular,
+  },
+  requestRow: {
+    borderColor: palette.grid,
+    borderRadius: 12,
+    borderWidth: 1,
+    gap: 4,
+    padding: 10,
+  },
+  requestTitle: {
     color: palette.text,
+    fontFamily: typography.medium,
   },
   status: {
-    fontFamily: typography.regular,
     color: palette.muted,
+    fontFamily: typography.regular,
+  },
+  subtitle: {
+    color: palette.accent,
+    fontFamily: typography.medium,
+  },
+  title: {
+    color: palette.text,
+    fontFamily: typography.bold,
+    fontSize: 16,
   },
 });

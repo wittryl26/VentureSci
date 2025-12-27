@@ -8,6 +8,8 @@ export const palette = {
   text: '#0f1d17',
   muted: '#6c7a73',
   card: '#f7faf8',
+  inverseText: '#ffffff',
+  transparent: 'transparent',
 };
 
 export const typography = {
@@ -30,33 +32,33 @@ export const appTheme: Theme = {
 };
 
 export const surfaceStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: palette.background,
+  accentText: {
+    color: palette.accent,
+    fontFamily: typography.medium,
   },
-  padded: {
-    padding: 16,
+  body: {
+    color: palette.muted,
+    fontFamily: typography.regular,
+    fontSize: 14,
   },
   card: {
     backgroundColor: palette.card,
-    borderRadius: 16,
-    padding: 16,
-    borderWidth: 1,
     borderColor: palette.grid,
+    borderRadius: 16,
+    borderWidth: 1,
+    padding: 16,
+  },
+  container: {
+    backgroundColor: palette.background,
+    flex: 1,
   },
   heading: {
+    color: palette.text,
     fontFamily: typography.bold,
     fontSize: 20,
-    color: palette.text,
     marginBottom: 8,
   },
-  body: {
-    fontFamily: typography.regular,
-    fontSize: 14,
-    color: palette.muted,
-  },
-  accentText: {
-    fontFamily: typography.medium,
-    color: palette.accent,
+  padded: {
+    padding: 16,
   },
 });

@@ -23,13 +23,15 @@ describe('API routes', () => {
   });
 
   it('adds a project and credibility link', async () => {
-    const project = await request(app).post('/api/projects').send({
-      title: 'New project',
-      principalInvestigator: 'QA',
-      summary: 'Testing pipeline',
-      tags: ['test'],
-      organizationId: 'org-1',
-    });
+    const project = await request(app)
+      .post('/api/projects')
+      .send({
+        title: 'New project',
+        principalInvestigator: 'QA',
+        summary: 'Testing pipeline',
+        tags: ['test'],
+        organizationId: 'org-1',
+      });
 
     expect(project.status).toBe(201);
 

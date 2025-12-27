@@ -10,7 +10,9 @@ interface PostComposerProps {
 
 export const PostComposer: React.FC<PostComposerProps> = ({ onCreate }) => {
   const [title, setTitle] = useState('Share a new breakthrough');
-  const [summary, setSummary] = useState('Concise description, collaborators needed, and outcomes.');
+  const [summary, setSummary] = useState(
+    'Concise description, collaborators needed, and outcomes.',
+  );
   const [category, setCategory] = useState<PostCategory>('discovery');
 
   return (
@@ -35,35 +37,38 @@ export const PostComposer: React.FC<PostComposerProps> = ({ onCreate }) => {
           />
         ))}
       </View>
-      <AccentButton label="Publish preview" onPress={() => onCreate({ title, summary, category })} />
+      <AccentButton
+        label="Publish preview"
+        onPress={() => onCreate({ title, summary, category })}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  categoryRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
   container: {
     gap: 8,
   },
-  title: {
-    fontFamily: typography.bold,
-    fontSize: 16,
-    color: palette.text,
-  },
   input: {
-    borderWidth: 1,
     borderColor: palette.grid,
     borderRadius: 12,
-    padding: 12,
-    fontFamily: typography.regular,
+    borderWidth: 1,
     color: palette.text,
+    fontFamily: typography.regular,
+    padding: 12,
   },
   multiline: {
     minHeight: 96,
     textAlignVertical: 'top',
   },
-  categoryRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
+  title: {
+    color: palette.text,
+    fontFamily: typography.bold,
+    fontSize: 16,
   },
 });

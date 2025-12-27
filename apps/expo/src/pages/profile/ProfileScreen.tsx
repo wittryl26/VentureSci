@@ -42,7 +42,9 @@ export const ProfileScreen: React.FC = () => {
 
       <Card style={styles.section}>
         <Text style={styles.sectionTitle}>Notifications</Text>
-        <Text style={styles.caption}>Save updates for organizations and posts to surface in Messages.</Text>
+        <Text style={styles.caption}>
+          Save updates for organizations and posts to surface in Messages.
+        </Text>
         <AccentButton label="Sign out" onPress={signOut} />
       </Card>
     </Screen>
@@ -50,55 +52,55 @@ export const ProfileScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  header: {
-    gap: 8,
-  },
-  title: {
-    fontFamily: typography.bold,
-    color: palette.text,
-    fontSize: 18,
-  },
-  caption: {
-    fontFamily: typography.regular,
-    color: palette.muted,
-  },
-  verifications: {
+  actions: {
     flexDirection: 'row',
     gap: 8,
   },
   badge: {
     backgroundColor: palette.grid,
+    borderRadius: 12,
+    color: palette.text,
+    fontFamily: typography.medium,
     paddingHorizontal: 10,
     paddingVertical: 6,
-    borderRadius: 12,
-    fontFamily: typography.medium,
-    color: palette.text,
   },
-  actions: {
-    flexDirection: 'row',
+  caption: {
+    color: palette.muted,
+    fontFamily: typography.regular,
+  },
+  header: {
     gap: 8,
+  },
+  linkLabel: {
+    color: palette.accent,
+    fontFamily: typography.medium,
+  },
+  linkRow: {
+    borderColor: palette.grid,
+    borderRadius: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  linkValue: {
+    color: palette.text,
+    fontFamily: typography.regular,
   },
   section: {
     gap: 10,
   },
   sectionTitle: {
-    fontFamily: typography.bold,
     color: palette.text,
+    fontFamily: typography.bold,
     fontSize: 16,
   },
-  linkRow: {
-    padding: 10,
-    borderWidth: 1,
-    borderColor: palette.grid,
-    borderRadius: 12,
-  },
-  linkLabel: {
-    fontFamily: typography.medium,
-    color: palette.accent,
-  },
-  linkValue: {
-    fontFamily: typography.regular,
+  title: {
     color: palette.text,
+    fontFamily: typography.bold,
+    fontSize: 18,
+  },
+  verifications: {
+    flexDirection: 'row',
+    gap: 8,
   },
 });
 

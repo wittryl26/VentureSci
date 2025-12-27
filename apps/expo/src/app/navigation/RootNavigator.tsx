@@ -34,7 +34,9 @@ const MainTabs = () => (
           Messages: 'chatbubbles-outline',
           Profile: 'person-circle-outline',
         };
-        return <Ionicons name={map[route.name as keyof MainTabParamList]} size={size} color={color} />;
+        return (
+          <Ionicons name={map[route.name as keyof MainTabParamList]} size={size} color={color} />
+        );
       },
     })}
   >

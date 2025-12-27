@@ -15,8 +15,22 @@ export const GridBackground: React.FC<GridBackgroundProps> = ({ children }) => {
           const offset = index * 32;
           return (
             <React.Fragment key={`grid-${offset}`}>
-              <Line x1={offset} y1={0} x2={offset} y2="100%" stroke={palette.grid} strokeWidth="0.5" />
-              <Line x1={0} y1={offset} x2="100%" y2={offset} stroke={palette.grid} strokeWidth="0.5" />
+              <Line
+                x1={offset}
+                y1={0}
+                x2={offset}
+                y2="100%"
+                stroke={palette.grid}
+                strokeWidth="0.5"
+              />
+              <Line
+                x1={0}
+                y1={offset}
+                x2="100%"
+                y2={offset}
+                stroke={palette.grid}
+                strokeWidth="0.5"
+              />
             </React.Fragment>
           );
         })}
@@ -28,15 +42,15 @@ export const GridBackground: React.FC<GridBackgroundProps> = ({ children }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: palette.background,
-  },
-  grid: {
-    position: 'absolute',
-    opacity: 0.25,
+    flex: 1,
   },
   content: {
     flex: 1,
+  },
+  grid: {
+    opacity: 0.25,
+    position: 'absolute',
   },
 });
 

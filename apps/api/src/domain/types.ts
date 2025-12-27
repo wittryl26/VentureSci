@@ -28,6 +28,7 @@ export interface Organization {
   focus: string;
   location: string;
   contact: string;
+  needs: string[];
 }
 
 export interface Profile {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { EncryptedChatPanel } from '../../features/chat/ui/EncryptedChatPanel';
 import { palette, typography } from '../../shared/theme';
 import Card from '../../shared/ui/Card';
@@ -11,8 +11,8 @@ export const MessagesScreen: React.FC = () => {
       <Card style={styles.header}>
         <Text style={styles.title}>Messages / Inbox</Text>
         <Text style={styles.caption}>
-          Kick off encrypted chat requests. Stream Chat handles delivery while Supabase stores metadata and RLS
-          protects participants.
+          Kick off encrypted chat requests. Stream Chat handles delivery while Supabase stores
+          metadata and RLS protects participants.
         </Text>
       </Card>
       <EncryptedChatPanel />
@@ -21,17 +21,17 @@ export const MessagesScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  caption: {
+    color: palette.muted,
+    fontFamily: typography.regular,
+  },
   header: {
     gap: 8,
   },
   title: {
-    fontFamily: typography.bold,
     color: palette.text,
+    fontFamily: typography.bold,
     fontSize: 18,
-  },
-  caption: {
-    fontFamily: typography.regular,
-    color: palette.muted,
   },
 });
 

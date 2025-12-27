@@ -1,4 +1,10 @@
-import { CredibilityLink, FunderRequest, Organization, Profile, ResearchProject } from '../domain/types';
+import {
+  CredibilityLink,
+  FunderRequest,
+  Organization,
+  Profile,
+  ResearchProject,
+} from '../domain/types';
 
 const now = () => new Date().toISOString();
 

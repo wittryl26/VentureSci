@@ -14,7 +14,9 @@ export const OrganizationsScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const handleBookmark = (id: string) => {
-    setOrganizations((existing) => existing.map((org) => (org.id === id ? { ...org, bookmarked: true } : org)));
+    setOrganizations((existing) =>
+      existing.map((org) => (org.id === id ? { ...org, bookmarked: true } : org)),
+    );
   };
 
   const handleInquiry = (id: string) => {
@@ -54,43 +56,49 @@ export const OrganizationsScreen: React.FC = () => {
           <Text style={styles.statValue}>{inquiryCount}</Text>
           <Text style={styles.statLabel}>inquiry requests queued</Text>
         </View>
-        <Text style={styles.status}>{loading ? 'Loading organizations...' : 'Synced from API when available.'}</Text>
+        <Text style={styles.status}>
+          {loading ? 'Loading organizations...' : 'Synced from API when available.'}
+        </Text>
       </Card>
-      <OrganizationList organizations={organizations} onBookmark={handleBookmark} onInquiry={handleInquiry} />
+      <OrganizationList
+        organizations={organizations}
+        onBookmark={handleBookmark}
+        onInquiry={handleInquiry}
+      />
     </Screen>
   );
 };
 
 const styles = StyleSheet.create({
+  caption: {
+    color: palette.muted,
+    fontFamily: typography.regular,
+  },
   header: {
     gap: 8,
-  },
-  title: {
-    fontFamily: typography.bold,
-    color: palette.text,
-    fontSize: 18,
-  },
-  caption: {
-    fontFamily: typography.regular,
-    color: palette.muted,
   },
   stat: {
     backgroundColor: palette.grid,
     borderRadius: 12,
     padding: 10,
   },
+  statLabel: {
+    color: palette.muted,
+    fontFamily: typography.medium,
+  },
   statValue: {
-    fontFamily: typography.bold,
     color: palette.accent,
+    fontFamily: typography.bold,
     fontSize: 16,
   },
-  statLabel: {
-    fontFamily: typography.medium,
-    color: palette.muted,
-  },
   status: {
-    fontFamily: typography.regular,
     color: palette.muted,
+    fontFamily: typography.regular,
+  },
+  title: {
+    color: palette.text,
+    fontFamily: typography.bold,
+    fontSize: 18,
   },
 });
 

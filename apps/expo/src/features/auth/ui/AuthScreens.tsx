@@ -22,7 +22,12 @@ export const SignInScreen: React.FC<AuthScreenProps<'SignIn'>> = ({ navigation }
     <Screen>
       <View style={surfaceStyles.card}>
         <Text style={styles.title}>Sign in</Text>
-        <TextField label="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
+        <TextField
+          label="Email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
         <TextField label="Password" value={password} secureTextEntry onChangeText={setPassword} />
         <AccentButton
           label="Continue"
@@ -52,7 +57,12 @@ export const SignUpScreen: React.FC<AuthScreenProps<'SignUp'>> = ({ navigation }
     <Screen>
       <View style={surfaceStyles.card}>
         <Text style={styles.title}>Sign up</Text>
-        <TextField label="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
+        <TextField
+          label="Email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
         <TextField label="Create password" value="long-password" secureTextEntry />
         <AccentButton
           label="Continue"
@@ -61,7 +71,11 @@ export const SignUpScreen: React.FC<AuthScreenProps<'SignUp'>> = ({ navigation }
             navigation.navigate('Onboarding');
           }}
         />
-        <AccentButton variant="ghost" label="Back to sign in" onPress={() => navigation.navigate('SignIn')} />
+        <AccentButton
+          variant="ghost"
+          label="Back to sign in"
+          onPress={() => navigation.navigate('SignIn')}
+        />
       </View>
     </Screen>
   );
@@ -148,7 +162,9 @@ export const VerifyPhoneScreen: React.FC<AuthScreenProps<'VerifyPhone'>> = ({ na
   );
 };
 
-export const ForgotPasswordScreen: React.FC<AuthScreenProps<'ForgotPassword'>> = ({ navigation }) => {
+export const ForgotPasswordScreen: React.FC<AuthScreenProps<'ForgotPassword'>> = ({
+  navigation,
+}) => {
   const { requestPasswordReset } = useAuth();
   const [email, setEmail] = useState('reset@venturesci.io');
 
@@ -156,7 +172,12 @@ export const ForgotPasswordScreen: React.FC<AuthScreenProps<'ForgotPassword'>> =
     <Screen>
       <View style={surfaceStyles.card}>
         <Text style={styles.title}>Reset password</Text>
-        <TextField label="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
+        <TextField
+          label="Email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
         <AccentButton
           label="Send reset link"
           onPress={() => {
@@ -170,12 +191,10 @@ export const ForgotPasswordScreen: React.FC<AuthScreenProps<'ForgotPassword'>> =
 };
 
 const styles = StyleSheet.create({
-  title: {
-    ...surfaceStyles.heading,
-  },
-  subtitle: {
-    ...surfaceStyles.body,
-    marginBottom: 12,
+  link: {
+    color: palette.accent,
+    fontFamily: typography.medium,
+    marginTop: 12,
   },
   list: {
     gap: 6,
@@ -184,9 +203,11 @@ const styles = StyleSheet.create({
   listItem: {
     ...surfaceStyles.body,
   },
-  link: {
-    marginTop: 12,
-    color: palette.accent,
-    fontFamily: typography.medium,
+  subtitle: {
+    ...surfaceStyles.body,
+    marginBottom: 12,
+  },
+  title: {
+    ...surfaceStyles.heading,
   },
 });

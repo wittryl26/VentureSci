@@ -20,7 +20,11 @@ export const HomeScreen: React.FC = () => {
     [saved.length, posts],
   );
 
-  const handleCreate = (payload: { title: string; summary: string; category: Post['category'] }) => {
+  const handleCreate = (payload: {
+    title: string;
+    summary: string;
+    category: Post['category'];
+  }) => {
     const next: Post = {
       id: `post-${Date.now()}`,
       title: payload.title,
@@ -33,7 +37,9 @@ export const HomeScreen: React.FC = () => {
 
   const handleSave = (id: string) => {
     setSaved((existing) => Array.from(new Set([...existing, id])));
-    setPosts((existing) => existing.map((post) => (post.id === id ? { ...post, saved: true } : post)));
+    setPosts((existing) =>
+      existing.map((post) => (post.id === id ? { ...post, saved: true } : post)),
+    );
   };
 
   const handleInquiry = (id: string) => {
@@ -47,7 +53,8 @@ export const HomeScreen: React.FC = () => {
       <Card style={styles.hero}>
         <Text style={styles.title}>Discover frontier projects</Text>
         <Text style={styles.body}>
-          Browse breakthrough workstreams, publish new updates, and send inquiries with encrypted context.
+          Browse breakthrough workstreams, publish new updates, and send inquiries with encrypted
+          context.
         </Text>
         <View style={styles.badges}>
           <View style={styles.badge}>
@@ -69,35 +76,35 @@ export const HomeScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  hero: {
-    gap: 8,
+  badge: {
+    alignItems: 'center',
+    backgroundColor: palette.grid,
+    borderRadius: 12,
+    padding: 10,
   },
-  title: {
+  badgeLabel: {
+    color: palette.muted,
+    fontFamily: typography.medium,
+  },
+  badgeValue: {
+    color: palette.accent,
     fontFamily: typography.bold,
-    color: palette.text,
     fontSize: 18,
-  },
-  body: {
-    ...surfaceStyles.body,
   },
   badges: {
     flexDirection: 'row',
     gap: 16,
   },
-  badge: {
-    backgroundColor: palette.grid,
-    borderRadius: 12,
-    padding: 10,
-    alignItems: 'center',
+  body: {
+    ...surfaceStyles.body,
   },
-  badgeValue: {
+  hero: {
+    gap: 8,
+  },
+  title: {
+    color: palette.text,
     fontFamily: typography.bold,
-    color: palette.accent,
     fontSize: 18,
-  },
-  badgeLabel: {
-    fontFamily: typography.medium,
-    color: palette.muted,
   },
 });
 

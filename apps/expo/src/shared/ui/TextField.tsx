@@ -22,18 +22,18 @@ const styles = StyleSheet.create({
   container: {
     gap: 4,
   },
-  label: {
-    fontFamily: typography.medium,
-    color: palette.text,
-    fontSize: 13,
-  },
   input: {
-    borderWidth: 1,
     borderColor: palette.grid,
     borderRadius: 12,
-    padding: 12,
-    fontFamily: typography.regular,
+    borderWidth: 1,
     color: palette.text,
+    fontFamily: typography.regular,
+    padding: 12,
+  },
+  label: {
+    color: palette.text,
+    fontFamily: typography.medium,
+    fontSize: 13,
   },
 });
 

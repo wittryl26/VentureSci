@@ -20,7 +20,11 @@ export const PostList: React.FC<PostListProps> = ({ posts, onSave, onInquiry }) 
         <Text style={styles.summary}>{post.summary}</Text>
         <View style={styles.actions}>
           <AccentButton label={post.saved ? 'Saved' : 'Save'} onPress={() => onSave(post.id)} />
-          <AccentButton variant="ghost" label="Inquiry request" onPress={() => onInquiry(post.id)} />
+          <AccentButton
+            variant="ghost"
+            label="Inquiry request"
+            onPress={() => onInquiry(post.id)}
+          />
         </View>
         <Text style={styles.meta}>{post.inquiries} active inquiries</Text>
       </Card>
@@ -29,33 +33,33 @@ export const PostList: React.FC<PostListProps> = ({ posts, onSave, onInquiry }) 
 );
 
 const styles = StyleSheet.create({
-  stack: {
-    gap: 12,
-  },
-  card: {
-    gap: 8,
-  },
-  title: {
-    fontFamily: typography.bold,
-    fontSize: 16,
-    color: palette.text,
-  },
-  category: {
-    fontFamily: typography.medium,
-    color: palette.accent,
-    fontSize: 12,
-    letterSpacing: 1,
-  },
-  summary: {
-    fontFamily: typography.regular,
-    color: palette.muted,
-  },
   actions: {
     flexDirection: 'row',
     gap: 8,
   },
-  meta: {
+  card: {
+    gap: 8,
+  },
+  category: {
+    color: palette.accent,
     fontFamily: typography.medium,
+    fontSize: 12,
+    letterSpacing: 1,
+  },
+  meta: {
     color: palette.muted,
+    fontFamily: typography.medium,
+  },
+  stack: {
+    gap: 12,
+  },
+  summary: {
+    color: palette.muted,
+    fontFamily: typography.regular,
+  },
+  title: {
+    color: palette.text,
+    fontFamily: typography.bold,
+    fontSize: 16,
   },
 });

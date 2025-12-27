@@ -72,7 +72,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       verifyPhone,
       requestPasswordReset,
     }),
-    [status, user, signIn, signUp, signOut, completeOnboarding, verifyEmail, verifyPhone, requestPasswordReset],
+    [
+      status,
+      user,
+      signIn,
+      signUp,
+      signOut,
+      completeOnboarding,
+      verifyEmail,
+      verifyPhone,
+      requestPasswordReset,
+    ],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

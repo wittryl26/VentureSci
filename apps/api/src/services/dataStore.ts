@@ -33,6 +33,7 @@ export class DataStore {
       focus: 'Space manufacturing',
       location: 'Remote',
       contact: 'founders@omg.space',
+      needs: ['Thermal analysis', 'Mission design', 'Seed partnerships'],
     },
   ];
 

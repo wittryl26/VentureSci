@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "workspaces": [
-    "packages/mobile",
-    "packages/api"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
-    "lint": "npm run lint:api && npm run lint:mobile",
+    "lint": "npm run lint:api && npm run lint:expo",
     "lint:api": "npm run lint --workspace @venturesci/api",
-    "lint:mobile": "npm run lint --workspace @venturesci/mobile",
-    "type-check": "npm run type-check:api && npm run type-check:mobile",
+    "lint:expo": "npm run lint --workspace @venturesci/expo",
+    "type-check": "npm run type-check:api && npm run type-check:expo",
     "type-check:api": "npm run type-check --workspace @venturesci/api",
-    "type-check:mobile": "npm run type-check --workspace @venturesci/mobile",
-    "test": "npm run test:api && npm run test:mobile",
+    "type-check:expo": "npm run type-check --workspace @venturesci/expo",
+    "test": "npm run test:api && npm run test:expo",
     "test:api": "npm test --workspace @venturesci/api",
-    "test:mobile": "npm test --workspace @venturesci/mobile"
+    "test:expo": "npm test --workspace @venturesci/expo"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",

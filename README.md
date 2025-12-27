@@ -38,10 +38,21 @@ Each slice exports its public API via an `index.ts` to avoid deep imports. Co-lo
 ├── CONTRIBUTING.md
 ├── frontend/
 │   ├── .env.example
-│   └── (Next.js app, FSD slices under app/features/entities/widgets/shared)
+│   ├── app/            # Next.js routes (App Router)
+│   ├── entities/       # Business entities (user, workspace, experiment)
+│   ├── features/       # User-facing capabilities (auth, chat, uploads)
+│   ├── processes/      # Cross-feature flows (onboarding, workspace switcher)
+│   ├── shared/         # UI kit, hooks, utilities, API clients
+│   └── widgets/        # Page-level sections
 └── backend/
     ├── .env.example
-    └── (FastAPI app, routers, services, db, tests)
+    ├── app/
+    │   ├── main.py     # FastAPI entrypoint
+    │   ├── api/        # Routers and versioned endpoints
+    │   ├── services/   # Business logic
+    │   ├── db/         # Database models, migrations, policy helpers
+    │   └── core/       # Settings, security, deps
+    └── tests/          # API, services, and policy tests
 ```
 
 ## Prerequisites
@@ -84,3 +95,21 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 The API serves at `http://localhost:8000`. Ensure `ALLOWED_ORIGINS` permits the frontend origin and that RLS policies are applied in your Supabase project before testing.
+
+### Supabase (local or hosted)
+
+- Hosted: Create a project in Supabase, enable Google/GitHub providers, and add `http://localhost:3000` to redirect URLs. Use the project URL + anon/service keys in your `.env` files.
+- Local: Install the Supabase CLI, run `supabase start`, and copy the generated `API URL`, `anon`, and `service_role` keys into your backend/frontend env files. Apply migrations before running the app.
+
+### Useful commands
+
+| Purpose | Command |
+| --- | --- |
+| Frontend lint | `pnpm lint` (from `frontend/`) |
+| Frontend tests | `pnpm test` or `pnpm vitest` |
+| Frontend typecheck | `pnpm typecheck` |
+| Backend lint | `ruff check .` (from `backend/`) |
+| Backend tests | `pytest` |
+| Backend typing | `mypy` (if configured) |
+
+Run linters/tests before opening a PR to keep CI green.

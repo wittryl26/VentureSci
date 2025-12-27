@@ -8,6 +8,7 @@ Thanks for contributing! This guide explains how we work, what to check before o
 2. **Sync** with upstream `main` before opening a PR.
 3. **Small, atomic PRs** are easiest to review; avoid bundling unrelated changes.
 4. **Link issues** in your PR description and reference them in commits when applicable.
+5. **Keep commits scoped** using Conventional Commits (e.g., `feat:`, `fix:`, `docs:`).
 
 ## Coding standards
 
@@ -45,6 +46,13 @@ Run relevant checks before pushing:
 
 CI should pass without failures; include rationale for any temporarily skipped tests.
 
+Run the relevant commands from the project root:
+
+```bash
+cd frontend && pnpm lint && pnpm typecheck && pnpm test
+cd ../backend && ruff check . && pytest
+```
+
 ## Supabase, RLS, and migrations
 
 - Store Supabase migrations (SQL) in the backend `db/migrations/` folder; never apply ad-hoc console edits without exporting the SQL.
@@ -52,6 +60,7 @@ CI should pass without failures; include rationale for any temporarily skipped t
 - Use the **service-role key only on the server** (backend/CI). The frontend must use the anon key.
 - Keep **storage bucket policies** in sync with table policies; restrict public buckets to read-only if possible.
 - Document any new policies in the PR description.
+- If you develop against local Supabase, run `supabase start` and copy the generated anon/service URLs/keys into `.env`/`.env.local`.
 
 ## Encrypted chat and secrets
 
